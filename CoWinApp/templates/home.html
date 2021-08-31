@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="#" method="POST">
+    {% csrf_token %}
+    <input type="number" name="pincode" placeholder="pincode">
+    <input type="submit" value="Submit">
+</form>
+<h3> Details </h3>
+
+{% if it %}
+
+
+{% for i in it %}    
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">State</th>
+        <th scope="col">District</th>
+        <th scope="col">Addresss</th>
+        <th scope="col">Hospital</th>
+        <th scope="col">Dose#1</th>
+        <th scope="col">Dose#2</th>
+        <th scope="col">Vaccine</th>
+        <th scope="col">Slots</th>
+        <th scope="col">(Paid/Free)</th>
+        <th scope="col">Fees</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{i.state_name}}</td>
+        <td>{{i.district_name}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.available_capacity_dose1}}</td>
+        <td>{{i.available_capacity_dose2}}</td>
+        <td>{{i.vaccine}}</td>
+        <td>{{i.slots}}</td>
+        <td>{{i.fee_type}}</td>
+        <td>{{i.fee}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+{% endfor %}
+{% else %}
+<table class="table table-striped">
+    <thead>
+<tr>
+    <!-- <th scope="col">S.No.</th> -->
+    <th scope="col">State</th>
+    <th scope="col">District</th>
+    <th scope="col">Addresss</th>
+    <th scope="col">Hospital</th>
+    <th scope="col">Dose#1</th>
+    <th scope="col">Dose#2</th>
+    <th scope="col">Vaccine</th>
+    <th scope="col">Slots</th>
+    <th scope="col">(Paid/Free)</th>
+    <th scope="col">Fees</th>
+  </tr>
+</thead>
+</table>
+<text>Sorry!!</text>
+{% endif %}
+
+{% endblock %}
