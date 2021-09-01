@@ -29,6 +29,7 @@ def home(request):
         url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={}&date={}-0{}-{}".format(pin,d,m,y)
     
     state = requests.get( url).json()
+    # print(state)
     state = state['sessions']
     context  = {"it": state}
     return render(request,"home.html",context)
