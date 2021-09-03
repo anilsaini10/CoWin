@@ -15,7 +15,7 @@ def home(request):
     url =""
     temp = pin
     if(len(str(temp))!=6):
-        return HttpResponse("enter valid pin code")
+        return HttpResponse("Enter a valid pin code")
     if(len(str(d))==1 and len(str(m))==1):
         d = int(d)
         m = int(m)
